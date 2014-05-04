@@ -30,12 +30,16 @@
 					<div class="cols2">
 						<div class="col-content">
 							<img src="resources/img/20dollars.jpg" width="300px"/>
-							<h:inputText id="amaount20" value="#{applicationBean.dollar20Bills}" required="true" requiredMessage="#{msg['required']}" class="tableCellInputText" />
+							<h:inputText id="amaount20" value="#{applicationBean.dollar20Bills}" required="true" requiredMessage="#{msg['required']}" class="tableCellInputText" validatorMessage="#{msg['amount.validationerror']}">
+								<f:validateLongRange minimum="0" />
+							</h:inputText>
 							<h:message for="amaount20" errorClass="error" style="display:block" />
 						</div>
 						<div class="col-content">
 							<img src="resources/img/50dollars.jpg" width="300px"/>
-							<h:inputText id="amaount50" value="#{applicationBean.dollar50Bills}" required="true" requiredMessage="#{msg['required']}" class="tableCellInputText" />
+							<h:inputText id="amaount50" value="#{applicationBean.dollar50Bills}" required="true" requiredMessage="#{msg['required']}" class="tableCellInputText" validatorMessage="#{msg['amount.validationerror']}">
+								<f:validateLongRange minimum="0" />
+							</h:inputText>
 							<h:message for="amaount50" errorClass="error" style="display:block" />
 						</div>
 					</div>
