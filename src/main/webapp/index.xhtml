@@ -23,7 +23,8 @@
 		<div class="content_center">
 			<div class="pagewidth">
 				<center>
-
+				<div class="currencycount">Please Enter the amount you would like to withdraw.</div>
+				
 				<h:form id="lostpass" prependId="false">
 					<h:inputText id="amaount" value="#{moneyBean.amount}" required="true" requiredMessage="#{msg['required']}" class="tableCellInputText" validatorMessage="#{msg['amount.validationerror']}">
 						<f:validateLongRange minimum="0" />
