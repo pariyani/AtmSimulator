@@ -40,7 +40,8 @@ public class ATMServiceImpl implements ATMService {
 					if (applicationBean.getDollar20Bills() >= dollar20Bills)
 						return updateAmount(dollar20Bills, (dollar50Amount / 50),amount);
 				}
-			}else if(amount % 20 == 0 && applicationBean.getDollar20Bills() >= amount/20)
+			}
+			if(amount % 20 == 0 && applicationBean.getDollar20Bills() >= amount/20)
 				return updateAmount(amount/20, 0,amount);
 		}
 		if (amount % 50 == 0 && applicationBean.getDollar50Bills() >= (amount / 50))
