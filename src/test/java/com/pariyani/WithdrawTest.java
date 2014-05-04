@@ -10,7 +10,9 @@ import javax.faces.context.FacesContext;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +37,9 @@ public class WithdrawTest {
 
 	@Autowired
 	private ApplicationBean	applicationBean;
+	
+	@Rule
+	public ExpectedException exception = ExpectedException.none();
 
 	@Before
 	public void setUp() throws Exception {
@@ -56,11 +61,19 @@ public class WithdrawTest {
 	@Test
 	public void sampleTest() {
 		try {
-			atmService.withdraw(140);
-			Assert.assertEquals(8, applicationBean.getDollar20Bills());
-			Assert.assertEquals(8, applicationBean.getDollar50Bills());
+	        atmService.withdraw(140);
+        
+	        Assert.assertEquals(8, applicationBean.getDollar20Bills());
+	        Assert.assertEquals(8, applicationBean.getDollar50Bills());
+	        
+	        atmService.withdraw(540);
+	        Assert.assertEquals(1, applicationBean.getDollar20Bills());
+	        Assert.assertEquals(0, applicationBean.getDollar50Bills());
+	        
+	        atmService.withdraw(60);
+	        exception.expect(InsufficientFundsException.class);
 		} catch (InsufficientFundsException e) {
-			e.printStackTrace();
-		}
+	        //e.printStackTrace();
+        }
 	}
 }
