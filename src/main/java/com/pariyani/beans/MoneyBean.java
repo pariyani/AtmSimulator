@@ -1,8 +1,11 @@
 package com.pariyani.beans;
 
+import java.io.IOException;
 import java.io.Serializable;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -29,10 +32,28 @@ public class MoneyBean implements Serializable {
 	@Autowired
 	private ATMService	      atmService;
 
+	@Autowired
+	private ApplicationBean	  appBean;
+
 	/**
 	 * Holds the amount user wants to withdraw.
 	 */
 	private Integer	          amount;
+
+	/**
+	 * 
+	 */
+	@PostConstruct
+	public void initBean() {
+		if (appBean.getDollar20Bills() == null || appBean.getDollar50Bills() == null) {
+			try {
+				FacesContext.getCurrentInstance().getExternalContext().redirect("refill.html");
+			} catch (IOException e) {
+				FacesUtils.addMessage(null, FacesMessage.SEVERITY_ERROR, "exception.IOException");
+				e.printStackTrace();
+			}
+		}
+	}
 
 	public Integer getAmount() {
 		return amount;

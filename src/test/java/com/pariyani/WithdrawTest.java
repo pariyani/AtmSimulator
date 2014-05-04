@@ -61,14 +61,16 @@ public class WithdrawTest {
 	@Test
 	public void sampleTest() {
 		try {
+			applicationBean.setDollar20Bills(10);
+			applicationBean.setDollar50Bills(10);
 	        atmService.withdraw(140);
         
-	        Assert.assertEquals(8, applicationBean.getDollar20Bills());
-	        Assert.assertEquals(8, applicationBean.getDollar50Bills());
+	        Assert.assertEquals(8, applicationBean.getDollar20Bills().intValue());
+	        Assert.assertEquals(8, applicationBean.getDollar50Bills().intValue());
 	        
 	        atmService.withdraw(540);
-	        Assert.assertEquals(1, applicationBean.getDollar20Bills());
-	        Assert.assertEquals(0, applicationBean.getDollar50Bills());
+	        Assert.assertEquals(1, applicationBean.getDollar20Bills().intValue());
+	        Assert.assertEquals(0, applicationBean.getDollar50Bills().intValue());
 	        
 	        atmService.withdraw(60);
 	        exception.expect(InsufficientFundsException.class);

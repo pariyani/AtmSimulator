@@ -24,38 +24,38 @@ public class ApplicationBean implements Serializable {
 	/**
 	 * No. of 20 dollar bills
 	 */
-	private int	              dollar20Bills	     = 10;
+	private Integer	          dollar20Bills	     = null;
 
 	/**
 	 * No. of 50 dollar bills
 	 */
-	private int	              dollar50Bills	     = 10;
+	private Integer	          dollar50Bills	     = null;
 
 	/**
 	 * @return No of 20 dollar bills present.
 	 */
-	public int getDollar20Bills() {
+	public Integer getDollar20Bills() {
 		return dollar20Bills;
 	}
 
 	/**
 	 * @param dollar20Bills
 	 */
-	public void setDollar20Bills(int dollar20Bills) {
+	public void setDollar20Bills(Integer dollar20Bills) {
 		this.dollar20Bills = dollar20Bills;
 	}
 
 	/**
 	 * @return No of 50 dollar bills present.
 	 */
-	public int getDollar50Bills() {
+	public Integer getDollar50Bills() {
 		return dollar50Bills;
 	}
 
 	/**
 	 * @param dollar50Bills
 	 */
-	public void setDollar50Bills(int dollar50Bills) {
+	public void setDollar50Bills(Integer dollar50Bills) {
 		this.dollar50Bills = dollar50Bills;
 	}
 

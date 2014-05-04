@@ -26,7 +26,7 @@
 				<h:messages id="globalmessagesnew" styleClass="messagesnew" errorClass="globalerror" infoClass="globalconfirmation" layout="table" globalOnly="true" showDetail="false" showSummary="true" />
 
 				<h:form id="lostpass" prependId="false">
-				
+					<div class="currencycount">Plese Enter the amount of 20 dollar and 50 dollar bills you would like to add to the ATM.</div>
 					<div class="cols2">
 						<div class="col-content">
 							<img src="resources/img/20dollars.jpg" width="300px"/>
@@ -42,7 +42,7 @@
 					<div class="clear" />
 					<div style="padding: 10px 0px;">
 						<h:outputLink value="index.html" style="margin-right:20px;">Cancel</h:outputLink>
-						<h:commandButton type="submit" id="recover" action="index.html" value="Save" class="button_atm" />
+						<h:commandButton type="submit" id="recover" action="index.html?faces-redirect=true" value="Save" class="button_atm" />
 					</div>
 					
 				</h:form>
